@@ -31,10 +31,10 @@
       </a>
       {{/each}}
       {{/if}}
-      <span id='score'>{{data.score}}</span>
+      <span id='score'>{{withCommas data.score}}</span>
       <br>
       {{#if data.num_comments}}
-      <span class='comments'>Comments: {{data.num_comments}}</span>
+      <span class='comments'>Comments: {{withCommas data.num_comments}}</span>
       {{else}}
       <span class='comments'>no conversation here!</span>
       {{/if}}
