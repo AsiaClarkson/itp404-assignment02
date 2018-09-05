@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Quicksand:300,400"
-  rel="stylesheet">
-<link rel='stylesheet' href='index.css'>
-<title>Fake Reddit</title>
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Quicksand:300,400" rel="stylesheet">
+  <link rel='stylesheet' href='index.css'>
+  <title>Fake Reddit</title>
 </head>
+
 <body>
-<h1>- Adventures in Fake Reddit -</h1>
+  <h1>- Adventures in Fake Reddit -</h1>
   <span style='font-size:30px;'>r/ </span><input type="text" id='searchbox' placeholder="Search..." value='futurefunk'>
-  <div id='searchbutton' class='button'  href='#'>Fetch Me Sum Subreddits Boi</div>
+  <div id='searchbutton' class='button' href='#'>Fetch Me Sum Subreddits Boi</div>
   <br><br>
-  <div id='postdata'>
+  <div id='allposts'>
 
   </div>
+  <template id='post-template'>
+    <span id='subs'># of Subscribers: {{withCommas posts.0.data.subreddit_subscribers}}</span>
+    <br>
+    {{#each posts}}
+    <br>
+    <div class='post'>
+      <span id='posttitle'><a href='{{data.url}}'>{{data.title}}</a></span>
+      <br><br>
+      <!-- Trying to display images -->
+      {{#if data.preview.images}}
+      {{#each data.preview.images}}
+      <a href="{{source.url}}" target="_blank">
+        <img class="postimg" src="{{source.url}}">
+      </a>
+      {{/each}}
+      {{/if}}
+      <span id='score'>{{data.score}}</span>
+      <br>
+      {{#if data.num_comments}}
+      <span class='comments'>Comments: {{data.num_comments}}</span>
+      {{else}}
+      <span class='comments'>no conversation here!</span>
+      {{/if}}
+    </div>
+    {{/each}}
+  </template>
   <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+  <script src="handlebars-v4.0.11.js"></script>
   <script src='main.js'></script>
 
 </body>
+
 </html>

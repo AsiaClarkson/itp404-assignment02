@@ -35,7 +35,7 @@ h1{
   font-family: 'Cabin Sketch',cursive;
   font-weight: 700;
 }
-#post{
+.post{
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
   width:800px;
@@ -53,13 +53,31 @@ h1{
 
 #score{
   font-family: 'Cabin Sketch',cursive;
-  font-size:30pt;
+  font-size:20pt;
   background-color: rgba(0,0,0,.3);
   padding:5px;
   position: absolute;
-  width:100px;
+  width:75px;
   right:0px;
   bottom: 0px;
+}
+.comments{
+  position: absolute;
+  bottom: 5px;
+  left:3px;
+}
+.postimg{
+  width:200px;
+}
+#subs{
+float: left;
+position: absolute;
+left: 310px;
+font-size: 20pt;
+}
+#oops{
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 30pt;
 }
 #author{
   font-size:14px;
@@ -75,7 +93,6 @@ a{
 a:hover{
   text-decoration: none;
   color:#fdbb2d;
-  font-size:28pt;
 }
 .button {
   display: inline-block;
