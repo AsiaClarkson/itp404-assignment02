@@ -26,11 +26,12 @@ $('#searchbutton').on('click', function (event) {
 
   promise.then(function (response) {
       console.log('success', response);
-      console.log('help');
+      $("#searchbutton").html('Fetch Me Sum Subreddits Boi');
+      
       let renderedPosts = renderPosts({
         posts: response.data.children
       });
-      console.log(renderedPosts);
+      // console.log(renderedPosts);
       $('#allposts').html(renderedPosts);
 
     },
@@ -38,6 +39,7 @@ $('#searchbutton').on('click', function (event) {
     function (error) {
       console.log('error', error);
       $("#allposts").html('<span id="oops">Houston, we have an error!</span>'); //checking for errors
+      $("#searchbutton").html('Oops you did it again!');
     })
 
 });
